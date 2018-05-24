@@ -102,3 +102,19 @@ $ npm install buffer-iterator
     // 1
     // 2
     ```
+
+# Contribute
+
+1. fork.
+
+2. install dependencies.
+
+    ```bash
+    $ npm install
+    ```
+
+3. run command.
+
+    ```bash
+    $ gulp
+    ```
