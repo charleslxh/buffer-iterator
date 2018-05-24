@@ -109,6 +109,17 @@ class BufferIterator {
   }
 
   /**
+  * Create a buffer itaretor.
+  *
+  * @param arguments of Buffer.from.
+  **/
+  static from() {
+    const args = Array.from(arguments);
+
+    return new this(Buffer.from.apply(Buffer, args));
+  }
+
+  /**
   * Add buffer to buffer list.
   **/
   append(buf) {

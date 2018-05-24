@@ -7,10 +7,20 @@ Let Buffer can be foreach.
 ## Install
 
 ```bash
-$ npm install buffer-iterator
+$ npm install buffer-iterator --save
 ```
 
-## Methods
+## Static Methods
+
+1. `from(): BufferItaretor`: Create an `BufferItaretor`, *arguments* is `Buffer.from`'s arguments.
+
+    ```js
+    const bi = BufferItaretor.from([0x01, 0x02]);
+    // same as 
+    const bi = new BufferItaretor(Buffer.from([0x01, 0x02]));
+    ```
+
+## Instance Methods
 
 1. `next(needMovePointer = true): Number|Null`: Read a byte from buffer, and move pointer to next byte when `needMovePointer` is `true`(**default**), if has not next byte, return *null*.
     
@@ -18,7 +28,7 @@ $ npm install buffer-iterator
     const assert = require('assert');
     const BufferIterator = require('buffer-iterator');
 
-    const bi = new BufferIterator(Buffer.from([0x01, 0x02]));
+    const bi = BufferItaretor.from([0x01, 0x02]);
     assert.equal(bi.next(), 0x01);
     ```
 
@@ -28,7 +38,7 @@ $ npm install buffer-iterator
     const assert = require('assert');
     const BufferIterator = require('buffer-iterator');
 
-    const bi = new BufferIterator(Buffer.from([0x01, 0x02]));
+    const bi = BufferItaretor.from([0x01, 0x02]);
     bi.next();
     bi.next();
     assert.equal(bi.prev(), 0x01);
@@ -40,7 +50,7 @@ $ npm install buffer-iterator
     const assert = require('assert');
     const BufferIterator = require('buffer-iterator');
 
-    const bi = new BufferIterator(Buffer.from([0x01, 0x02]));
+    const bi = BufferItaretor.from([0x01, 0x02]);
     bi.next();
     assert.equal(bi.current(), 0x01);
     ```
@@ -51,7 +61,7 @@ $ npm install buffer-iterator
     const assert = require('assert');
     const BufferIterator = require('buffer-iterator');
 
-    const bi = new BufferIterator(Buffer.from([0x01, 0x02]));
+    const bi = BufferItaretor.from([0x01, 0x02]);
     bi.next();
     assert.equal(bi.hasNext(), true);
     ```
@@ -62,7 +72,7 @@ $ npm install buffer-iterator
     const assert = require('assert');
     const BufferIterator = require('buffer-iterator');
 
-    const bi = new BufferIterator(Buffer.from([0x01, 0x02]));
+    const bi = BufferItaretor.from([0x01, 0x02]);
     bi.next();
     assert.equal(bi.remainLength(), 1);
     ```
@@ -73,7 +83,7 @@ $ npm install buffer-iterator
     const assert = require('assert');
     const BufferIterator = require('buffer-iterator');
 
-    const bi = new BufferIterator(Buffer.from([0x01, 0x02]));
+    const bi = BufferItaretor.from([0x01, 0x02]);
     assert.equal(bi.readBytes(10).equals(Buffer.from([0x01, 0x02])), true);
     ```
 
@@ -83,7 +93,7 @@ $ npm install buffer-iterator
     const assert = require('assert');
     const BufferIterator = require('buffer-iterator');
 
-    const bi = new BufferIterator(Buffer.from([0x01, 0x02]));
+    const bi = BufferItaretor.from([0x01, 0x02]);
     bi.append(Buffer.from([0x03]));
     assert.equal(bi.buffer.equals(Buffer.from([0x01, 0x02, 0x03])), true);
     ```
@@ -94,7 +104,7 @@ $ npm install buffer-iterator
     const assert = require('assert');
     const BufferIterator = require('buffer-iterator');
 
-    const bi = new BufferIterator(Buffer.from([0x01, 0x02]));
+    const bi = BufferItaretor.from([0x01, 0x02]);
     for (let byte of bi) {
       console.log(byte);
     }
