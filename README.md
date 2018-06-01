@@ -2,7 +2,7 @@
 
 [![Build Status](https://travis-ci.org/charleslxh/buffer-iterator.svg?branch=master)](https://travis-ci.org/charleslxh/buffer-iterator)
 
-Let Buffer can be foreach.
+Let Buffer iterable.
 
 ## Install
 
